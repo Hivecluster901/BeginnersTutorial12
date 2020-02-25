@@ -1,5 +1,7 @@
 #include "Dude.h"
 #include "Graphics.h"
+#include "Keyboard.h"
+#include "MainWindow.h"
 
 void Dude::ClampToScreen()
 {
@@ -24,6 +26,32 @@ void Dude::ClampToScreen()
         y = (Graphics::ScreenHeight - 1) - height;
     }
     
+}
+
+void Dude::Update(MainWindow& wnd)
+{
+    if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+    {
+        x += 1;
+    }
+    if (wnd.kbd.KeyIsPressed(VK_LEFT))
+    {
+        x -= 1;
+    }
+    if (wnd.kbd.KeyIsPressed(VK_UP))
+    {
+        y -= 1;
+    }
+    if (wnd.kbd.KeyIsPressed(VK_DOWN))
+    {
+        y += 1;
+    }
+}
+
+Dude::Dude(int x, int y)
+{
+    this->x = x;
+    this->y = y;
 }
 
 void Dude::Draw(Graphics &gfx) const
@@ -346,3 +374,4 @@ void Dude::Draw(Graphics &gfx) const
     gfx.PutPixel(12 + x, 19 + y, 0, 0, 0);
 
 }
+
