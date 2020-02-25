@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Poo.h"
 #include "Dude.h"
+#include <random>
 
 class Game
 {
@@ -48,7 +49,11 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
-	/*  User Variables              */
+	/*  User Variables             */
+    std::random_device rd; // Caution! When we initiailize stuff, the order of initialization depends on the order in this list.
+    std::mt19937 rng;
+    std::uniform_int_distribution<int> xDist;
+    std::uniform_int_distribution<int> yDist;
     Dude dude;
     Poo poo0;
     Poo poo1;

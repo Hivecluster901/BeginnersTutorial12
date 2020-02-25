@@ -279,3 +279,16 @@ void Poo::Draw(Graphics &gfx) const
     gfx.PutPixel(6 + x, 23 + y, 51, 28, 0);
 
 }
+
+bool Poo::IsEaten() const
+{
+	return isEaten;
+}
+
+Poo::Poo(int xp, int yp, int vxp, int vyp)
+{
+    this->x = xp;
+    this->y = yp;
+    this->vx = vxp;
+    this->vy = vyp;
+}
